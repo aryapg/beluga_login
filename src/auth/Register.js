@@ -158,7 +158,7 @@ function Register({ setAuthState, setUser, darkMode, toggleDarkMode }) {
                 </div>
             </div>
 
-            {/* Right Side - Cybersecurity Animation */}
+             {/* Right Side - Cybersecurity Animation */}
             <div className={`hidden relative w-1/2 h-full lg:flex items-center justify-center ${darkMode ? 'bg-black' : 'bg-gray-200'}`}>
                 {/* Red Circle - Starts fully in the unblurred part */}
                 <div className="absolute w-60 h-60 bg-gradient-to-tr from-red-500 to-red-700 rounded-full animate-red-pop shadow-red-glow flex items-center justify-center">
@@ -169,7 +169,7 @@ function Register({ setAuthState, setUser, darkMode, toggleDarkMode }) {
                 </div>
 
                 {/* Red Tagline - Appears with the red circle and disappears with it */}
-                <div className="absolute top-[50%] text-white text-3xl font-bold animate-red-text-fade font-poppins">
+                <div className={`absolute top-[50%] text-3xl font-bold animate-red-text-fade font-poppins ${darkMode ? 'text-white' : 'text-red-900'}`}>
                     Stay Alert🚨 - Protect Your Digital World!
                 </div>
 
@@ -182,7 +182,7 @@ function Register({ setAuthState, setUser, darkMode, toggleDarkMode }) {
                 </div>
 
                 {/* Blue Tagline - Appears after blue circle fully moves up */}
-                <div className="absolute top-[50%] text-white text-3xl font-bold opacity-0 animate-blue-text-fade font-poppins">
+                <div className={`absolute top-[50%] text-3xl font-bold opacity-0 animate-blue-text-fade font-poppins ${darkMode ? 'text-white' : 'text-blue-900'}`}>
                     Use Beluga🐋 - Secure Your Digital World!🌐
                 </div>
             </div>
