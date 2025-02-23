@@ -62,7 +62,7 @@ function Register({ setAuthState, setUser, darkMode, toggleDarkMode }) {
     };
 
     const redirectToMainPage = () => {
-        window.location.href = "https://5b4f-152-59-242-136.ngrok-free.app/#";
+        window.location.href = "https://beluga-main-page.vercel.app/";
     };
 
     return (
@@ -158,8 +158,8 @@ function Register({ setAuthState, setUser, darkMode, toggleDarkMode }) {
                 </div>
             </div>
 
-             {/* Right Side - Cybersecurity Animation */}
-            <div className={`hidden relative w-1/2 h-full lg:flex items-center justify-center ${darkMode ? 'bg-black' : 'bg-gray-200'}`}>
+            {/* Right Side - Cybersecurity Animation */}
+             <div className={`hidden relative w-1/2 h-full lg:flex items-center justify-center ${darkMode ? 'bg-black' : 'bg-gray-200'}`}>
                 {/* Red Circle - Starts fully in the unblurred part */}
                 <div className="absolute w-60 h-60 bg-gradient-to-tr from-red-500 to-red-700 rounded-full animate-red-pop shadow-red-glow flex items-center justify-center">
                     {/* Cross Mark */}
