@@ -61,7 +61,7 @@ const Login = ({ setAuthState, setUser, darkMode, toggleDarkMode }) => {
     };
 
     const redirectToMainPage = () => {
-        window.location.href = "https://5b4f-152-59-242-136.ngrok-free.app/#";
+        window.location.href = "https://beluga-main-page.vercel.app/";
     };
 
     return (
