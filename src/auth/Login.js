@@ -13,9 +13,6 @@ const Login = ({ setAuthState, setUser, darkMode, toggleDarkMode }) => {
     const [showPassword, setShowPassword] = useState(false);
     const [rememberMe, setRememberMe] = useState(false);
 
-    console.log("Login - darkMode:", darkMode); // Debugging
-
-    // Check localStorage for saved credentials on component mount
     useEffect(() => {
         const savedCredentials = JSON.parse(localStorage.getItem('rememberMeCredentials'));
         if (savedCredentials && new Date(savedCredentials.expiration) > new Date()) {
@@ -30,19 +27,17 @@ const Login = ({ setAuthState, setUser, darkMode, toggleDarkMode }) => {
         signInWithPopup(auth, provider)
             .then(async (result) => {
                 const user = result.user;
-                await setDoc(doc(db, "normal_signin", user.uid), {
+                await setDoc(doc(db, "gsign", user.uid), {
                     email: user.email,
                     displayName: user.displayName,
                     uid: user.uid,
                     provider: "Google",
                     lastLogin: new Date().toISOString(),
                 });
+                console.log("Firestore document updated for Google sign-up."); // Debugging
                 setUser(user.email);
                 setAuthState("home");
-    
-                // Add the success alert and redirect here
-                alert("Logged in successfully!");
-                window.location.href = "https://home.ngrok.io"; // Use ngrok URL of home app
+                redirectToMainPage();
             })
             .catch((err) => alert(err.message));
     };
@@ -52,37 +47,21 @@ const Login = ({ setAuthState, setUser, darkMode, toggleDarkMode }) => {
             signInWithEmailAndPassword(auth, email, password)
                 .then(async (userCredential) => {
                     const user = userCredential.user;
-                    await setDoc(doc(db, "normal_signin", user.uid), {
+                    await setDoc(doc(db, "nsign", user.uid), {
                         email: user.email,
                         uid: user.uid,
                         lastLogin: new Date().toISOString(),
                     });
                     setUser(user.email);
                     setAuthState("home");
-    
-                    // Add the success alert and redirect here
-                    alert("Logged in successfully!");
-                    window.location.href = "https://home.ngrok.io"; // Use ngrok URL of home app
-    
-                    // Save credentials to localStorage if "Remember me" is checked
-                    if (rememberMe) {
-                        const expiration = new Date();
-                        expiration.setDate(expiration.getDate() + 30); // 30 days from now
-                        localStorage.setItem(
-                            'rememberMeCredentials',
-                            JSON.stringify({
-                                email,
-                                password,
-                                expiration: expiration.toISOString(),
-                            })
-                        );
-                    } else {
-                        // Clear saved credentials if "Remember me" is unchecked
-                        localStorage.removeItem('rememberMeCredentials');
-                    }
+                    redirectToMainPage();
                 })
                 .catch((err) => alert(err.message));
         }
+    };
+
+    const redirectToMainPage = () => {
+        window.location.href = "https://5b4f-152-59-242-136.ngrok-free.app/#";
     };
 
     return (

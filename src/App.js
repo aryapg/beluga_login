@@ -2,7 +2,7 @@ import * as React from 'react';
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import ForgotPassword from "./auth/ForgotPassword";
-// import Home from './pages/Home';
+import Home from './pages/Home';
 import { auth } from './fire';
 import { onAuthStateChanged } from 'firebase/auth';
 
@@ -40,8 +40,7 @@ function App() {
     if (authState === 'login') return <Login setAuthState={setAuthState} setUser={setUser} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />;
     if (authState === 'register') return <Register setAuthState={setAuthState} setUser={setUser} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />;
     if (authState === 'forgotPassword') return <ForgotPassword setAuthState={setAuthState} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />;
-    if (user){  window.location.href = "https://home.ngrok.io"; // Redirecting to the ngrok link
-        return null;}
+    if(user) return <Home user={user} setAuthState={setAuthState} setUser={setUser}/>
 }
 
 export default App;
