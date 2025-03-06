@@ -23,7 +23,7 @@ Before setting up the project, install the following dependencies:
 - **[Node.js](https://nodejs.org/):** Follow the [official installation guide](https://nodejs.org/en/download/).
 - **[npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)** or **[yarn](https://classic.yarnpkg.com/en/docs/install/)** for package management.
 - **[Tailwind CSS](https://tailwindcss.com/):** Follow the [official setup guide](https://tailwindcss.com/docs/installation).
-- **[Vercel CLI](https://vercel.com/docs/cli):** Follow the [official installation guide](https://vercel.com/docs/cli).
+- **[Vercel CLI](https://vercel.com/docs/cli):** Follow the [installation guide](https://vercel.com/docs/cli) to deploy the project.
 
 ### Installation
 
@@ -46,6 +46,12 @@ Before setting up the project, install the following dependencies:
 
    ```bash
    yarn install
+   ```
+
+   Alternatively, install dependencies using the provided `requirements.txt`:
+
+   ```bash
+   npm install $(cat requirements.txt)
    ```
 
 3. **Set up environment variables:**
@@ -90,15 +96,11 @@ Beluga can be deployed on various hosting platforms. For instance, to deploy on 
    npm install -g vercel
    ```
 
-   Refer to the [Vercel CLI guide](https://vercel.com/docs/cli) for installation instructions.
-
-2. **Login to Vercel:**
+2. **Log in to Vercel:**
 
    ```bash
    vercel login
    ```
-
-   Follow the prompts to authenticate with your Vercel account.
 
 3. **Deploy the application:**
 
@@ -114,7 +116,6 @@ Beluga can be deployed on various hosting platforms. For instance, to deploy on 
 - **Firebase Authentication:** Secure authentication service.
 - **Tailwind CSS:** Utility-first CSS framework for styling.
 - **PostCSS:** Tool for transforming CSS with JavaScript plugins.
-- **Vercel:** Cloud platform for deploying front-end applications.
 
 ## Contributing
 
