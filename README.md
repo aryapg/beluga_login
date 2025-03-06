@@ -48,12 +48,6 @@ Before setting up the project, install the following dependencies:
    yarn install
    ```
 
-   Alternatively, install dependencies using the provided `requirements.txt`:
-
-   ```bash
-   npm install $(cat requirements.txt)
-   ```
-
 3. **Set up environment variables:**
 
    Create a `.env` file in the root directory and add your Firebase configuration details:
