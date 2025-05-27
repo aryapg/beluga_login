@@ -61,7 +61,7 @@ const Login = ({ setAuthState, setUser, darkMode, toggleDarkMode }) => {
     };
 
     const redirectToMainPage = () => {
-        window.location.href = "https://beluga-main-page.vercel.app/";
+        window.location.href = "https://beluga-main-page-git-main-aryas-projects-f0315630.vercel.app/";
     };
 
     return (
